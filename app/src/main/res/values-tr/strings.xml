@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AleClip</string>
+    <string name="app_subtitle">Hızlı, Renkli &amp; Güvenli</string>
+
+    <!-- Filters -->
+    <string name="filter_all">Tümü</string>
+    <string name="filter_pinned">Sabitlenenler</string>
+    <string name="filter_text">Metin</string>
+    <string name="filter_links">Bağlantılar</string>
+    <string name="filter_images">Görseller</string>
+    <string name="filter_files">Dosyalar</string>
+    <string name="filter_colors">Renkler</string>
+    <string name="filter_trash">Çöp Kutusu</string>
+
+    <!-- Actions -->
+    <string name="action_copy">Kopyala</string>
+    <string name="action_paste">Yapıştır</string>
+    <string name="action_pin">Sabitle</string>
+    <string name="action_unpin">Sabitlemeyi Kaldır</string>
+    <string name="action_delete">Sil</string>
+    <string name="action_permanent_delete">Kalıcı Olarak Sil</string>
+    <string name="action_restore">Geri Yükle</string>
+    <string name="action_undo">Geri Al</string>
+    <string name="action_save">Kaydet</string>
+    <string name="action_cancel">Vazgeç</string>
+    <string name="action_empty_trash">Çöpü Boşalt</string>
+    <string name="action_share">Paylaş</string>
+    <string name="action_export_backup">Yedeği Dışa Aktar (JSON)</string>
+    <string name="action_import_backup">Yedeği İçe Aktar (JSON)</string>
+
+    <!-- Prompts & Messages -->
+    <string name="search_placeholder">Not, link veya renk kodu ara…</string>
+    <string name="search_no_results">Eşleşen öğe bulunamadı</string>
+    <string name="empty_title">Henüz klip yok</string>
+    <string name="empty_subtitle">Herhangi bir uygulamadan metin, bağlantı veya renk kopyalayın ya da + ile ekleyin.</string>
+    <string name="trash_title">Çöp Kutusu</string>
+    <string name="trash_empty">Çöp kutusu boş</string>
+    <string name="trash_empty_desc">Silinen öğeler kalıcı olarak temizlenene kadar burada saklanır.</string>
+    <string name="trash_empty_confirm_title">Çöp Kutusu Boşaltılsın mı?</string>
+    <string name="trash_empty_confirm_message">Tüm silinmiş klipler kalıcı olarak silinecektir. Bu işlem geri alınamaz.</string>
+
+    <!-- Toasts -->
+    <string name="toast_copied">Panoya kopyalandı!</string>
+    <string name="toast_deleted_moved">Klip Çöp Kutusuna taşındı</string>
+    <string name="toast_restored">Klip geri yüklendi</string>
+    <string name="toast_new_captured">Panodan yeni öğe yakalandı</string>
+    <string name="toast_shared_saved">AleClip\'e kaydedildi!</string>
+
+    <!-- Details -->
+    <string name="detail_title">Klip Detayları</string>
+    <string name="detail_created">Oluşturulma</string>
+    <string name="detail_length">Uzunluk</string>
+    <string name="detail_words">Kelime</string>
+    <string name="new_clip_title">Yeni Klip</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Ayarlar</string>
+    <string name="settings_general">Genel</string>
+    <string name="settings_max_history">Geçmiş Sınırı</string>
+    <string name="settings_auto_ingest">Uygulama Açılışında Panoyu Algıla</string>
+    <string name="settings_haptics">Dokunsal Titreşim (Haptics)</string>
+    <string name="settings_storage">Depolama &amp; Çöp Kutusu</string>
+    <string name="settings_backup">Yedekleme &amp; Taşıma</string>
+    <string name="settings_about">AleClip Hakkında</string>
+    <string name="about_version">Sürüm %1$s (%2$s)</string>
+    <string name="about_developer">Geliştirici</string>
+    <string name="about_tagline">Hızlı, renkli ve %100 cihaz içi çalışan pano yöneticisi.</string>
+    <string name="about_privacy">%100 Gizli: Sıfır Telemetri, Sıfır Bulut İzleyicisi.</string>
+
+    <!-- Tile Service -->
+    <string name="tile_label">AleClip</string>
+</resources>

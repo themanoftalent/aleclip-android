@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#0F172A</color>
+    
+    <!-- Spectrum Palette (ZERO PINK) -->
+    <color name="spectrum_cyan">#00F0FF</color>
+    <color name="spectrum_azure">#0080FF</color>
+    <color name="spectrum_mint">#00F5A0</color>
+    <color name="spectrum_emerald">#00D26A</color>
+    <color name="spectrum_lime">#76FF03</color>
+    <color name="spectrum_gold">#FFD600</color>
+    <color name="spectrum_tangerine">#FF8C00</color>
+    
+    <!-- Dark & Light Theme Base -->
+    <color name="primary">#0080FF</color>
+    <color name="surface_dark">#121826</color>
+    <color name="surface_variant_dark">#1E293B</color>
+</resources>
