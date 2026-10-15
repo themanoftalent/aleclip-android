@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AleClip</string>
+    <string name="app_subtitle">Fast, Colorful &amp; Private</string>
+
+    <!-- Filters -->
+    <string name="filter_all">All</string>
+    <string name="filter_pinned">Pinned</string>
+    <string name="filter_text">Text</string>
+    <string name="filter_links">Links</string>
+    <string name="filter_images">Images</string>
+    <string name="filter_files">Files</string>
+    <string name="filter_colors">Colors</string>
+    <string name="filter_trash">Trash</string>
+
+    <!-- Actions -->
+    <string name="action_copy">Copy</string>
+    <string name="action_paste">Paste</string>
+    <string name="action_pin">Pin</string>
+    <string name="action_unpin">Unpin</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_permanent_delete">Delete Forever</string>
+    <string name="action_restore">Restore</string>
+    <string name="action_undo">Undo</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_empty_trash">Empty Trash</string>
+    <string name="action_share">Share</string>
+    <string name="action_export_backup">Export Backup (JSON)</string>
+    <string name="action_import_backup">Import Backup (JSON)</string>
+
+    <!-- Prompts & Messages -->
+    <string name="search_placeholder">Search clips, links, colors…</string>
+    <string name="search_no_results">No matching clips found</string>
+    <string name="empty_title">No clips yet</string>
+    <string name="empty_subtitle">Copy text, links, or colors from any app, or tap + to create one.</string>
+    <string name="trash_title">Trash</string>
+    <string name="trash_empty">Trash is empty</string>
+    <string name="trash_empty_desc">Deleted items will appear here before being permanently removed.</string>
+    <string name="trash_empty_confirm_title">Empty Trash?</string>
+    <string name="trash_empty_confirm_message">All deleted clips will be permanently removed. This cannot be undone.</string>
+
+    <!-- Toasts -->
+    <string name="toast_copied">Copied to clipboard!</string>
+    <string name="toast_deleted_moved">Clip moved to Trash</string>
+    <string name="toast_restored">Clip restored from Trash</string>
+    <string name="toast_new_captured">New clip captured from clipboard</string>
+    <string name="toast_shared_saved">Saved to AleClip!</string>
+
+    <!-- Details -->
+    <string name="detail_title">Clip Details</string>
+    <string name="detail_created">Created</string>
+    <string name="detail_length">Length</string>
+    <string name="detail_words">Words</string>
+    <string name="new_clip_title">New Clip</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_general">General</string>
+    <string name="settings_max_history">History Limit</string>
+    <string name="settings_auto_ingest">Auto-detect Clipboard on App Open</string>
+    <string name="settings_haptics">Tactile Haptics</string>
+    <string name="settings_storage">Storage &amp; Trash</string>
+    <string name="settings_backup">Backup &amp; Migration</string>
+    <string name="settings_about">About AleClip</string>
+    <string name="about_version">Version %1$s (%2$s)</string>
+    <string name="about_developer">Developer</string>
+    <string name="about_tagline">Fast, colorful, and 100% on-device clipboard manager.</string>
+    <string name="about_privacy">100% Private: Zero Telemetry, Zero Cloud Trackers.</string>
+
+    <!-- Tile Service -->
+    <string name="tile_label">AleClip</string>
+</resources>
