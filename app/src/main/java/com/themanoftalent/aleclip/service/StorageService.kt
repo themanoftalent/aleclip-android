@@ -9,7 +9,32 @@ import kotlinx.coroutines.flow.asStateFlow
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
+import java.security.MessageDigest
 import java.util.UUID
+
+/** A clip from another device's sync payload, already mapped to Android types. */
+data class RemoteClip(
+    val id: String,
+    val type: ClipType,
+    val content: String,
+    val createdAt: Long,
+    val lastUsedAt: Long,
+    val isPinned: Boolean,
+    val contentHash: String
+)
+
+/** Same content hash as AleClip for Mac/iOS: sha256("<prefix>:<content>") in hex. */
+fun aleClipContentHash(type: ClipType, content: String): String {
+    val prefix = when (type) {
+        ClipType.TEXT -> "text"
+        ClipType.LINK -> "url"
+        ClipType.COLOR -> "color"
+        ClipType.FILE -> "file"
+        ClipType.IMAGE -> "image"
+    }
+    val digest = MessageDigest.getInstance("SHA-256").digest("$prefix:$content".toByteArray(Charsets.UTF_8))
+    return digest.joinToString("") { "%02x".format(it) }
+}
 
 class StorageService private constructor(private val context: Context) {
 
@@ -24,6 +49,21 @@ class StorageService private constructor(private val context: Context) {
 
     private val undoStack = mutableListOf<Pair<ClipItem, Int>>()
     private val dataFile = File(context.filesDir, "clips.json")
+
+    /** Sync tombstones: contentHash -> deletion time (ms). Shared with Mac/iPhone. */
+    private val tombstones = mutableMapOf<String, Long>()
+    private val tombstoneLifetimeMs = 60L * 24 * 60 * 60 * 1000 // 60 days
+
+    /** Called after local changes that other devices should learn about. */
+    @Volatile var onLocalChange: (() -> Unit)? = null
+
+    private fun recordTombstone(item: ClipItem) {
+        tombstones[aleClipContentHash(item.type, item.content)] = System.currentTimeMillis()
+    }
+
+    private fun clearTombstone(item: ClipItem) {
+        tombstones.remove(aleClipContentHash(item.type, item.content))
+    }
 
     init {
         loadData()
@@ -42,7 +82,9 @@ class StorageService private constructor(private val context: Context) {
             if (isPinned) existing.isPinned = true
             current.add(0, existing)
             _activeClips.value = current
+            clearTombstone(existing)
             saveData()
+            onLocalChange?.invoke()
             return existing
         }
 
@@ -66,7 +108,9 @@ class StorageService private constructor(private val context: Context) {
         }
 
         _activeClips.value = current
+        clearTombstone(newItem)
         saveData()
+        onLocalChange?.invoke()
         return newItem
     }
 
@@ -117,7 +161,9 @@ class StorageService private constructor(private val context: Context) {
 
             _activeClips.value = current
             _deletedClips.value = trash
+            recordTombstone(removed)
             saveData()
+            onLocalChange?.invoke()
             return removed
         }
         return null
@@ -140,7 +186,9 @@ class StorageService private constructor(private val context: Context) {
         current.add(targetIndex, clip)
         _activeClips.value = current
 
+        clearTombstone(clip)
         saveData()
+        onLocalChange?.invoke()
         return clip
     }
 
@@ -159,7 +207,9 @@ class StorageService private constructor(private val context: Context) {
 
             _deletedClips.value = trash
             _activeClips.value = current
+            clearTombstone(item)
             saveData()
+            onLocalChange?.invoke()
             return item
         }
         return null
@@ -211,6 +261,12 @@ class StorageService private constructor(private val context: Context) {
             }
             root.put("deleted", deletedArr)
 
+            val cutoff = System.currentTimeMillis() - tombstoneLifetimeMs
+            tombstones.entries.removeAll { it.value < cutoff }
+            val tombObj = JSONObject()
+            for ((hash, at) in tombstones) tombObj.put(hash, at)
+            root.put("tombstones", tombObj)
+
             dataFile.writeText(root.toString(2))
         } catch (e: Exception) {
             e.printStackTrace()
@@ -240,6 +296,11 @@ class StorageService private constructor(private val context: Context) {
                 }
             }
             _deletedClips.value = deletedList
+
+            tombstones.clear()
+            root.optJSONObject("tombstones")?.let { obj ->
+                for (key in obj.keys()) tombstones[key] = obj.optLong(key)
+            }
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -269,6 +330,68 @@ class StorageService private constructor(private val context: Context) {
             isDeleted = o.optBoolean("isDeleted", false),
             deletedAt = if (o.has("deletedAt")) o.optLong("deletedAt") else null
         )
+    }
+
+    // MARK: - Sync
+
+    /** Local clips (no images) and tombstones for this device's sync payload. */
+    @Synchronized
+    fun snapshotForSync(): Pair<List<ClipItem>, Map<String, Long>> =
+        _activeClips.value.filter { it.type != ClipType.IMAGE } to tombstones.toMap()
+
+    /** Merge another device's clips and deletions (same rules as Mac/iOS). Returns (added, removed). */
+    @Synchronized
+    fun applyRemote(remoteClips: List<RemoteClip>, remoteTombstones: Map<String, Long>): Pair<Int, Int> {
+        val current = _activeClips.value.toMutableList()
+        val trash = _deletedClips.value.toMutableList()
+        var removed = 0
+        var tombstonesChanged = false
+
+        for ((hash, deletedAt) in remoteTombstones) {
+            val existing = tombstones[hash]
+            if (existing != null && existing >= deletedAt) continue
+            tombstones[hash] = deletedAt
+            tombstonesChanged = true
+            val victims = current.filter {
+                !it.isPinned && it.timestamp <= deletedAt && aleClipContentHash(it.type, it.content) == hash
+            }
+            for (v in victims) {
+                current.remove(v)
+                v.isDeleted = true
+                v.deletedAt = deletedAt
+                trash.removeAll { it.id == v.id }
+                trash.add(0, v)
+                removed++
+            }
+        }
+
+        val localHashes = current.map { aleClipContentHash(it.type, it.content) }.toMutableSet()
+        var added = 0
+        for (rc in remoteClips) {
+            if (rc.type == ClipType.IMAGE || rc.content.isBlank()) continue
+            if (rc.contentHash in localHashes) continue
+            val deletedAt = tombstones[rc.contentHash]
+            if (deletedAt != null && deletedAt >= rc.lastUsedAt) continue
+            current.add(
+                ClipItem(
+                    id = rc.id,
+                    type = rc.type,
+                    content = rc.content,
+                    timestamp = rc.createdAt,
+                    isPinned = rc.isPinned
+                )
+            )
+            localHashes.add(rc.contentHash)
+            added++
+        }
+        if (added > 0) current.sortByDescending { it.timestamp }
+
+        if (added > 0 || removed > 0 || tombstonesChanged) {
+            _activeClips.value = current
+            _deletedClips.value = trash.take(100)
+            saveData()
+        }
+        return added to removed
     }
 
     fun exportBackupJson(): String {

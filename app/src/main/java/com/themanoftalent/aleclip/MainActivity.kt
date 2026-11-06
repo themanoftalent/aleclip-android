@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import com.themanoftalent.aleclip.service.ClipboardService
+import com.themanoftalent.aleclip.service.DriveSyncService
 import com.themanoftalent.aleclip.ui.screens.MainScreen
 import com.themanoftalent.aleclip.ui.theme.AleClipTheme
 import com.themanoftalent.aleclip.ui.viewmodel.ClipViewModel
@@ -29,5 +30,6 @@ class MainActivity : ComponentActivity() {
         super.onResume()
         // Auto-capture clipboard when coming to foreground
         ClipboardService.ingestClipboard(this)
+        DriveSyncService.scheduleSync(this, delayMs = 500)
     }
 }

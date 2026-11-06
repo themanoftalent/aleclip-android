@@ -86,11 +86,33 @@ All Google Play Console metadata, descriptions, keywords, privacy declarations, 
 
 ## Building Locally
 
-Open the project folder in **Android Studio**:
+Open the project folder in **Android Studio**, or use the Gradle wrapper:
 ```bash
-# Or run with Gradle on any machine:
-gradle :app:bundleRelease :app:assembleRelease
+./gradlew assembleDebug                         # debug APK, no keystore needed
+./gradlew :app:bundleRelease :app:assembleRelease  # needs the release keystore
 ```
+
+---
+
+## Sync with Mac & iPhone (Google Drive)
+
+Settings › **Sync with Mac** › **Connect Google Drive** syncs clips *and deletions* with AleClip for
+Mac and iPhone through the hidden `My Drive/AleClip/.sync` folder (`sync_payload_<device>.json`,
+format v2.2.0). Android can't open a Google Drive folder directly, so the app uses the Drive API.
+
+One-time setup in [Google Cloud Console](https://console.cloud.google.com/) (no code changes needed):
+
+1. Create a project and enable the **Google Drive API**.
+2. **OAuth consent screen**: External, add the scope `https://www.googleapis.com/auth/drive`,
+   and add your Google account as a **test user**.
+3. **Credentials › Create OAuth client ID › Android**, once per build you install:
+   - Release: package `com.themanoftalent.aleclip` + the SHA-1 of `aleclip-release.keystore`
+   - Debug: package `com.themanoftalent.aleclip.debug` + the SHA-1 of `~/.android/debug.keystore`
+
+   Get a SHA-1 with `keytool -list -v -keystore <keystore> -alias <alias>`.
+
+Until that's done, **Connect Google Drive** shows "Google Drive sync isn't configured for this build yet".
+Images stay on the device that captured them; text, links, colors and files sync.
 
 ---
 

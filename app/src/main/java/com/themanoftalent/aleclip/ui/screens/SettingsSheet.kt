@@ -1,6 +1,9 @@
 package com.themanoftalent.aleclip.ui.screens
 
+import android.app.Activity
 import android.content.Intent
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -20,6 +23,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.themanoftalent.aleclip.service.DriveSyncService
 import com.themanoftalent.aleclip.ui.components.SpectrumLogoBadge
 import com.themanoftalent.aleclip.ui.theme.SpectrumColors
 
@@ -112,6 +116,11 @@ fun SettingsSheet(
                     Text("Empty Trash")
                 }
             }
+
+            HorizontalDivider()
+
+            // Sync with Mac / iPhone through Google Drive
+            SyncWithMacSection()
 
             HorizontalDivider()
 
@@ -417,5 +426,68 @@ fun SettingsSheet(
                 }
             }
         )
+    }
+}
+
+
+@Composable
+private fun SyncWithMacSection() {
+    val context = LocalContext.current
+    val state by DriveSyncService.state.collectAsState()
+    val launcher = rememberLauncherForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) { result ->
+        DriveSyncService.handleAuthResult(context, result.data)
+    }
+    val connected = state !is DriveSyncService.State.NotConnected && DriveSyncService.isEnabled(context)
+
+    Text("Sync with Mac", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+    Text(
+        "Clips and deletions sync with AleClip on your Mac and iPhone through the hidden .sync folder in My Drive/AleClip.",
+        style = MaterialTheme.typography.bodySmall,
+        color = Color.Gray
+    )
+
+    when (val s = state) {
+        is DriveSyncService.State.Syncing -> Row(verticalAlignment = Alignment.CenterVertically) {
+            CircularProgressIndicator(modifier = Modifier.size(16.dp), strokeWidth = 2.dp)
+            Spacer(modifier = Modifier.width(8.dp))
+            Text("Syncing…", fontSize = 13.sp)
+        }
+        is DriveSyncService.State.Synced -> Column {
+            Text(s.message, fontSize = 13.sp)
+            if (s.at > 0) {
+                val time = java.text.DateFormat.getDateTimeInstance(java.text.DateFormat.MEDIUM, java.text.DateFormat.SHORT)
+                    .format(java.util.Date(s.at))
+                Text("Last synced: $time", fontSize = 12.sp, color = Color.Gray)
+            }
+        }
+        is DriveSyncService.State.Error -> Text(s.message, fontSize = 13.sp, color = Color.Red)
+        DriveSyncService.State.NotConnected -> Unit
+    }
+
+    if (connected) {
+        Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            Button(
+                onClick = { DriveSyncService.syncNow(context) },
+                enabled = state !is DriveSyncService.State.Syncing,
+                colors = ButtonDefaults.buttonColors(containerColor = SpectrumColors.Azure)
+            ) {
+                Icon(Icons.Default.Sync, contentDescription = null)
+                Spacer(modifier = Modifier.width(6.dp))
+                Text("Sync Now")
+            }
+            OutlinedButton(onClick = { DriveSyncService.disconnect(context) }) {
+                Text("Stop Syncing")
+            }
+        }
+    } else {
+        Button(
+            onClick = { (context as? Activity)?.let { DriveSyncService.connect(it, launcher) } },
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(containerColor = SpectrumColors.Azure)
+        ) {
+            Icon(Icons.Default.CloudSync, contentDescription = null)
+            Spacer(modifier = Modifier.width(8.dp))
+            Text("Connect Google Drive")
+        }
     }
 }

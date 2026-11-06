@@ -54,9 +54,14 @@ android {
                 "proguard-rules.pro"
             )
             val releaseConfig = signingConfigs.findByName("release")
+            // Only enforce the release keystore when a release task is actually requested,
+            // so debug builds (and `gradlew wrapper`) work on machines without the keystore.
+            val releaseRequested = gradle.startParameter.taskNames.any {
+                it.contains("Release", ignoreCase = true) || it.startsWith("bundle") || it == "build" || it == "assemble"
+            }
             if (releaseConfig?.storeFile != null && releaseConfig.storeFile!!.exists() && !releaseConfig.storePassword.isNullOrBlank()) {
                 signingConfig = releaseConfig
-            } else {
+            } else if (releaseRequested) {
                 throw GradleException(
                     "Release build aborted: aleclip-release.keystore or credentials are missing! " +
                     "Release builds will NOT be signed with debug keys. " +
@@ -99,6 +104,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.3")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.3")
     implementation("androidx.activity:activity-compose:1.9.0")
+
+    // Google Sign-In authorization for Drive sync with AleClip for Mac/iPhone
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
 
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
