@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Only used for optional Google Drive sync with AleClip for Mac/iPhone -->
+    <!-- Only used for optional Google Drive sync with Clipale for Mac/iPhone -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -38,7 +38,7 @@
             android:name=".ShareReceiverActivity"
             android:exported="true"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:label="Save to AleClip">
+            android:label="Save to Clipale">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />

@@ -37,7 +37,7 @@ fun SpectrumLogoBadge(size: Int = 44) {
     ) {
         Icon(
             imageVector = Icons.Default.AttachFile,
-            contentDescription = "AleClip Logo",
+            contentDescription = "Clipale Logo",
             tint = SpectrumColors.Cyan,
             modifier = Modifier
                 .size((size * 0.55).dp)
@@ -56,7 +56,7 @@ fun WatermarkLogo(compact: Boolean = false) {
 
         Column(verticalArrangement = Arrangement.spacedBy((-2).dp)) {
             Text(
-                text = "ALE",
+                text = "Clipale",
                 fontSize = if (compact) 26.sp else 40.sp,
                 fontWeight = FontWeight.Black,
                 fontFamily = FontFamily.SansSerif,
@@ -68,7 +68,7 @@ fun WatermarkLogo(compact: Boolean = false) {
                 horizontalArrangement = Arrangement.spacedBy(4.dp)
             ) {
                 Text(
-                    text = "CLIP",
+                    text = "CLIPBOARD",
                     fontSize = if (compact) 9.sp else 11.sp,
                     fontWeight = FontWeight.Bold,
                     fontFamily = FontFamily.Monospace,

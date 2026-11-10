@@ -24,7 +24,7 @@ class ShareReceiverActivity : Activity() {
                 }
 
                 StorageService.getInstance(this).addClip(type = type, content = text)
-                Toast.makeText(this, "Saved to AleClip!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Saved to Clipale!", Toast.LENGTH_SHORT).show()
             }
         }
 

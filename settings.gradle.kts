@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AleClip"
+rootProject.name = "Clipale"
 include(":app")

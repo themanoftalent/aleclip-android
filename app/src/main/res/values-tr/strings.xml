@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AleClip</string>
+    <string name="app_name">Clipale</string>
     <string name="app_subtitle">Hızlı, Renkli &amp; Güvenli</string>
 
     <!-- Filters -->
@@ -45,7 +45,7 @@
     <string name="toast_deleted_moved">Klip Çöp Kutusuna taşındı</string>
     <string name="toast_restored">Klip geri yüklendi</string>
     <string name="toast_new_captured">Panodan yeni öğe yakalandı</string>
-    <string name="toast_shared_saved">AleClip\'e kaydedildi!</string>
+    <string name="toast_shared_saved">Clipale\'e kaydedildi!</string>
 
     <!-- Details -->
     <string name="detail_title">Klip Detayları</string>
@@ -62,12 +62,12 @@
     <string name="settings_haptics">Dokunsal Titreşim (Haptics)</string>
     <string name="settings_storage">Depolama &amp; Çöp Kutusu</string>
     <string name="settings_backup">Yedekleme &amp; Taşıma</string>
-    <string name="settings_about">AleClip Hakkında</string>
+    <string name="settings_about">Clipale Hakkında</string>
     <string name="about_version">Sürüm %1$s (%2$s)</string>
     <string name="about_developer">Geliştirici</string>
     <string name="about_tagline">Hızlı, renkli ve %100 cihaz içi çalışan pano yöneticisi.</string>
     <string name="about_privacy">%100 Gizli: Sıfır Telemetri, Sıfır Bulut İzleyicisi.</string>
 
     <!-- Tile Service -->
-    <string name="tile_label">AleClip</string>
+    <string name="tile_label">Clipale</string>
 </resources>

@@ -1,7 +1,7 @@
-# AleClip for Android
+# Clipale for Android
 
 <p align="center">
-  <img src="GooglePlay/ic_launcher_playstore_512.png" width="128" height="128" style="border-radius: 28px;" alt="AleClip App Icon" />
+  <img src="GooglePlay/ic_launcher_playstore_512.png" width="128" height="128" style="border-radius: 28px;" alt="Clipale App Icon" />
 </p>
 
 <p align="center">
@@ -24,8 +24,8 @@
 
 - **Instant Clipboard Ingest**: Captures copied text, links, color codes, and notes seamlessly when the app is active or via quick paste.
 - **Accidental Deletion Protection & Trash Recovery**: Never lose an important note! Instant floating Undo snackbar notification (5-second recovery) and a dedicated Trash folder with one-tap restore.
-- **System Share Sheet Integration**: Save text, links, and articles directly into AleClip from Chrome, WhatsApp, Twitter, Notes, and any Android app.
-- **Quick Settings Tile**: Add the AleClip tile to your notification quick panel for instant 1-tap clipboard capture or launching the app.
+- **System Share Sheet Integration**: Save text, links, and articles directly into Clipale from Chrome, WhatsApp, Twitter, Notes, and any Android app.
+- **Quick Settings Tile**: Add the Clipale tile to your notification quick panel for instant 1-tap clipboard capture or launching the app.
 - **Vibrant Spectrum Aesthetic (Zero Pink)**: Crafted using a custom radiant palette across Electric Cyan, Cobalt Azure, Neon Mint, Emerald Green, Electric Lime, and Sunburst Gold.
 - **Smart Filter Categories**: Filter instantaneously across *All*, *Pinned*, *Text*, *Links*, *Colors*, *Images*, *Files*, and *Trash*.
 - **Interactive Inspector & Editor**: Tap any clip to view full details, edit text notes, open URLs directly in your browser, or inspect color swatches.
@@ -96,7 +96,7 @@ Open the project folder in **Android Studio**, or use the Gradle wrapper:
 
 ## Sync with Mac & iPhone (Google Drive)
 
-Settings › **Sync with Mac** › **Connect Google Drive** syncs clips *and deletions* with AleClip for
+Settings › **Sync with Mac** › **Connect Google Drive** syncs clips *and deletions* with Clipale for
 Mac and iPhone through the hidden `My Drive/AleClip/.sync` folder (`sync_payload_<device>.json`,
 format v2.2.0). Android can't open a Google Drive folder directly, so the app uses the Drive API.
 
@@ -128,4 +128,8 @@ If you find this project helpful, consider supporting it or reaching out for col
 
 ## License
 
-MIT License. Copyright © 2026 AleClip. Developed with passion by **themanoftalent**.
+MIT License. Copyright © 2026 Clipale. Developed with passion by **themanoftalent**.
+
+## Clipale branding and compatibility
+
+Clipale is the new display name of AleClip. Existing package identifiers, source namespaces, executable and backup filenames, storage and sync paths, and repository URLs retain their legacy names for compatibility. Existing published assets and screenshots may still show the previous branding until a new release is published.

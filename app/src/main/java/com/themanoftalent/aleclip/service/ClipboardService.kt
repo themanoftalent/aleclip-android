@@ -31,7 +31,7 @@ object ClipboardService {
     fun copyToClipboard(context: Context, item: ClipItem) {
         val cm = context.getSystemService(Context.CLIPBOARD_SERVICE) as? ClipboardManager ?: return
         lastCopiedContent = item.content
-        val clip = ClipData.newPlainText("AleClip", item.content)
+        val clip = ClipData.newPlainText("Clipale", item.content)
         cm.setPrimaryClip(clip)
     }
 

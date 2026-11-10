@@ -1,6 +1,6 @@
-# Google Play Store Submission Guide — AleClip Android
+# Google Play Store Submission Guide — Clipale Android
 
-This guide walks you through publishing **AleClip Android (v2.0.1)** to the Google Play Store using the Google Play Console.
+This guide walks you through publishing **Clipale Android (v2.0.1)** to the Google Play Store using the Google Play Console.
 
 ---
 
@@ -16,7 +16,7 @@ This guide walks you through publishing **AleClip Android (v2.0.1)** to the Goog
 
 1. Log in to [Google Play Console](https://play.google.com/console).
 2. Click **Create app** (top right):
-   - **App name**: `AleClip - Clipboard Manager`
+   - **App name**: `Clipale - Clipboard Manager`
    - **Default language**: English (United States)
    - **App or game**: App
    - **Free or paid**: Free
@@ -65,11 +65,11 @@ Go to **Grow > Store presence > Main store listing**:
 ## 5. Build & Upload the Release Bundle (.aab)
 
 ### Automated GitHub Actions Build
-AleClip includes a production CI/CD workflow at [`.github/workflows/android-build.yml`](../.github/workflows/android-build.yml):
+Clipale includes a production CI/CD workflow at [`.github/workflows/android-build.yml`](../.github/workflows/android-build.yml):
 1. Whenever code is pushed to `main`, GitHub Actions automatically compiles and packages:
-   - `AleClip-v2.0.1.aab` (Android App Bundle for Play Store)
-   - `AleClip-v2.0.1.apk` (Direct installable APK)
-2. Go to **Actions** in your GitHub repository and download the **AleClip-Release-Bundle** artifact.
+   - `app-release.aab` (Android App Bundle for Play Store)
+   - `app-release.apk` (Direct installable APK)
+2. Go to **Actions** in your GitHub repository and download the **Clipale-Android-AppBundle** and **Clipale-Android-APK** artifacts.
 
 ### Uploading to Play Console
 1. In Play Console, go to **Release > Production** (or **Closed testing**).
@@ -86,4 +86,4 @@ AleClip includes a production CI/CD workflow at [`.github/workflows/android-buil
    ```
 6. Click **Next** > **Save** > **Review release** > **Start rollout to Production**!
 
-Google Play review typically takes **1 to 3 days**. Once approved, AleClip will be live worldwide on the Google Play Store!
+Google Play review typically takes **1 to 3 days**. Once approved, Clipale will be live worldwide on the Google Play Store!

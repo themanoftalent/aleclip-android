@@ -1,14 +1,14 @@
-# Privacy Policy for AleClip Android
+# Privacy Policy for Clipale Android
 
 **Effective Date:** October 14, 2026  
 **Last Updated:** October 14, 2026  
 
-AleClip ("we", "our", or "the App") is developed by **themanoftalent**. This Privacy Policy governs your use of AleClip for Android.
+Clipale ("we", "our", or "the App") is developed by **themanoftalent**. This Privacy Policy governs your use of Clipale for Android.
 
 ---
 
 ### 1. Zero Data Collection & Zero Telemetry
-- AleClip **does not collect**, transmit, sell, or disclose any personal information, device identifiers, or clipboard contents.
+- Clipale **does not collect**, transmit, sell, or disclose any personal information, device identifiers, or clipboard contents.
 - We **do not integrate** any advertising networks, third-party analytics SDKs, tracking frameworks, or cloud analytics.
 
 ---
@@ -27,7 +27,7 @@ AleClip ("we", "our", or "the App") is developed by **themanoftalent**. This Pri
 ---
 
 ### 4. Children's Online Privacy Protection
-Because AleClip does not collect or transmit any personal data, it complies with the Children's Online Privacy Protection Act (COPPA) and GDPR. The App is suitable for users of all ages.
+Because Clipale does not collect or transmit any personal data, it complies with the Children's Online Privacy Protection Act (COPPA) and GDPR. The App is suitable for users of all ages.
 
 ---
 

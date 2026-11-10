@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AleClip</string>
+    <string name="app_name">Clipale</string>
     <string name="app_subtitle">Fast, Colorful &amp; Private</string>
 
     <!-- Filters -->
@@ -45,7 +45,7 @@
     <string name="toast_deleted_moved">Clip moved to Trash</string>
     <string name="toast_restored">Clip restored from Trash</string>
     <string name="toast_new_captured">New clip captured from clipboard</string>
-    <string name="toast_shared_saved">Saved to AleClip!</string>
+    <string name="toast_shared_saved">Saved to Clipale!</string>
 
     <!-- Details -->
     <string name="detail_title">Clip Details</string>
@@ -62,12 +62,12 @@
     <string name="settings_haptics">Tactile Haptics</string>
     <string name="settings_storage">Storage &amp; Trash</string>
     <string name="settings_backup">Backup &amp; Migration</string>
-    <string name="settings_about">About AleClip</string>
+    <string name="settings_about">About Clipale</string>
     <string name="about_version">Version %1$s (%2$s)</string>
     <string name="about_developer">Developer</string>
     <string name="about_tagline">Fast, colorful, and 100% on-device clipboard manager.</string>
     <string name="about_privacy">100% Private: Zero Telemetry, Zero Cloud Trackers.</string>
 
     <!-- Tile Service -->
-    <string name="tile_label">AleClip</string>
+    <string name="tile_label">Clipale</string>
 </resources>

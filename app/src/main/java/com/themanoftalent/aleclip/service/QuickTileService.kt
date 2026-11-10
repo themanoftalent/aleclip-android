@@ -14,7 +14,7 @@ class QuickTileService : TileService() {
         super.onClick()
         val item = ClipboardService.ingestClipboard(applicationContext)
         if (item != null) {
-            Toast.makeText(applicationContext, "Saved to AleClip!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Saved to Clipale!", Toast.LENGTH_SHORT).show()
         } else {
             // Launch main app
             val intent = Intent(applicationContext, MainActivity::class.java).apply {

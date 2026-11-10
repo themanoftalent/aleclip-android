@@ -63,7 +63,7 @@ fun SettingsSheet(
                     verticalArrangement = Arrangement.spacedBy(6.dp)
                 ) {
                     SpectrumLogoBadge(size = 56)
-                    Text("AleClip", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Black)
+                    Text("Clipale", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Black)
                     Text("Version 2.0.1 (2026)", style = MaterialTheme.typography.bodySmall, color = Color.Gray)
                 }
             }
@@ -132,7 +132,7 @@ fun SettingsSheet(
                     val json = onExportBackup()
                     val sendIntent = Intent(Intent.ACTION_SEND).apply {
                         type = "application/json"
-                        putExtra(Intent.EXTRA_SUBJECT, "AleClip Backup")
+                        putExtra(Intent.EXTRA_SUBJECT, "Clipale Backup")
                         putExtra(Intent.EXTRA_TEXT, json)
                     }
                     context.startActivity(Intent.createChooser(sendIntent, "Export Backup JSON"))
@@ -441,7 +441,7 @@ private fun SyncWithMacSection() {
 
     Text("Sync with Mac", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
     Text(
-        "Clips and deletions sync with AleClip on your Mac and iPhone through the hidden .sync folder in My Drive/AleClip.",
+        "Clips and deletions sync with Clipale on your Mac and iPhone through the hidden .sync folder in My Drive/AleClip.",
         style = MaterialTheme.typography.bodySmall,
         color = Color.Gray
     )

@@ -1,7 +1,7 @@
-# AleClip Android — Google Play Store Metadata
+# Clipale Android — Google Play Store Metadata
 
 ## Basic Information
-- **App Title**: `AleClip - Clipboard Manager` *(28 / 30 chars)*
+- **App Title**: `Clipale - Clipboard Manager` *(27 / 30 chars)*
 - **Short Description**: `Fast, colorful & 100% private clipboard manager with undo and trash recovery.` *(77 / 80 chars)*
 - **Package Name (Application ID)**: `com.themanoftalent.aleclip`
 - **Version Name**: `2.0.1`
@@ -18,7 +18,7 @@
 ## Full Description (English)
 
 ```text
-AleClip is the modern, colorful, and privacy-first clipboard companion built for Android. Designed for speed, peace of mind, and effortless productivity, AleClip helps you organize snippets, links, colors, and notes—without ever sending a single byte of your data to external servers.
+Clipale is the modern, colorful, and privacy-first clipboard companion built for Android. Designed for speed, peace of mind, and effortless productivity, Clipale helps you organize snippets, links, colors, and notes—without ever sending a single byte of your data to external servers.
 
 KEY FEATURES:
 
@@ -26,13 +26,13 @@ KEY FEATURES:
 Quickly save text, links, color hex codes, or snippets upon opening the app or by tapping the dedicated Paste action.
 
 • ACCIDENTAL DELETE PROTECTION & TRASH RECOVERY
-Never worry about losing an important memo or snippet! AleClip features instant Undo recovery notifications and a dedicated Trash folder. Accidentally deleted clips can be restored with a single tap.
+Never worry about losing an important memo or snippet! Clipale features instant Undo recovery notifications and a dedicated Trash folder. Accidentally deleted clips can be restored with a single tap.
 
 • SYSTEM SHARE MENU INTEGRATION
 Save links, articles, and text directly from Chrome, WhatsApp, Twitter, or any app using the native Android Share menu—no app switching required.
 
 • QUICK SETTINGS TILE
-Add the custom AleClip tile to your Android Quick Settings panel to save your clipboard or launch the manager in one tap from the notification shade.
+Add the custom Clipale tile to your Android Quick Settings panel to save your clipboard or launch the manager in one tap from the notification shade.
 
 • PIN ESSENTIAL CLIPS
 Keep frequent links, code snippets, email templates, and important notes pinned to the top of your list for instant one-tap copying.
@@ -44,12 +44,12 @@ Find exactly what you need in milliseconds. Filter by Links, Text, Colors, Image
 Enjoy a radiant, eye-friendly spectrum gradient palette engineered across Electric Cyan, Cobalt Azure, Neon Mint, Emerald Green, Electric Lime, and Sunburst Gold. Fully optimized for both Dark Mode and Light Mode with fluid tactile haptic feedback.
 
 • 100% LOCAL & PRIVATE (ZERO TELEMETRY)
-Your clipboard is personal. AleClip contains zero analytics, zero trackers, zero advertisements, and zero third-party servers. All data stays strictly on your local device.
+Your clipboard is personal. Clipale contains zero analytics, zero trackers, zero advertisements, and zero third-party servers. All data stays strictly on your local device.
 
 • SEAMLESS BACKUP & EXPORT
 Easily backup your clipboard history or export to JSON to migrate between devices whenever you want.
 
-Upgrade your daily workflow with AleClip—the clipboard companion you can trust.
+Upgrade your daily workflow with Clipale—the clipboard companion you can trust.
 ```
 
 ---
@@ -57,7 +57,7 @@ Upgrade your daily workflow with AleClip—the clipboard companion you can trust
 ## Full Description (Turkish / Türkçe)
 
 ```text
-AleClip, Android için geliştirilmiş modern, renkli ve tamamen gizlilik odaklı pano düzenleyicisidir. Hız, kullanım kolaylığı ve güvenlik için tasarlanan AleClip, metinlerinizi, bağlantılarınızı ve notlarınızı tek bir bayt verinizi dahi dış sunuculara göndermeden cihazınızda düzenli ve güvende tutar.
+Clipale, Android için geliştirilmiş modern, renkli ve tamamen gizlilik odaklı pano düzenleyicisidir. Hız, kullanım kolaylığı ve güvenlik için tasarlanan Clipale, metinlerinizi, bağlantılarınızı ve notlarınızı tek bir bayt verinizi dahi dış sunuculara göndermeden cihazınızda düzenli ve güvende tutar.
 
 ÖNE ÇIKAN ÖZELLİKLER:
 
@@ -65,13 +65,13 @@ AleClip, Android için geliştirilmiş modern, renkli ve tamamen gizlilik odakl�
 Uygulamayı açtığınızda veya tek dokunuşlu Yapıştır butonuyla en son kopyalanan metinleri, web bağlantılarını veya renkleri anında listenize ekleyin.
 
 • YANLIŞLIKLA SİLME KORUMASI VE ÇÖP KUTUSU
-Önemli bir notu kaybetme korkusuna son! AleClip anında Geri Al (Undo) bildirimi ve özel Çöp Kutusu sunar. Yanlışlıkla sildiğiniz içerikleri tek dokunuşla geri yükleyebilirsiniz.
+Önemli bir notu kaybetme korkusuna son! Clipale anında Geri Al (Undo) bildirimi ve özel Çöp Kutusu sunar. Yanlışlıkla sildiğiniz içerikleri tek dokunuşla geri yükleyebilirsiniz.
 
 • SİSTEM PAYLAŞIM MENÜSÜ ENTEGRASYONU
-Chrome, WhatsApp, Twitter veya herhangi bir uygulamadan bağlantı ve metinleri uygulamayı açmadan doğrudan AleClip'e kaydedin.
+Chrome, WhatsApp, Twitter veya herhangi bir uygulamadan bağlantı ve metinleri uygulamayı açmadan doğrudan Clipale'e kaydedin.
 
 • HIZLI AYARLAR (QUICK SETTINGS) KAROSU
-Bildirim panelinize AleClip karosunu ekleyerek tek dokunuşla panoyu kaydedin veya uygulamayı açın.
+Bildirim panelinize Clipale karosunu ekleyerek tek dokunuşla panoyu kaydedin veya uygulamayı açın.
 
 • SABİTLEME (PIN)
 Sık kullandığınız bağlantıları, kod parçacıklarını, şablonları veya önemli notları listenin en üstüne sabitleyin.
@@ -83,12 +83,12 @@ Gelişmiş arama ve filtreleme sekmeleriyle Bağlantılar, Metinler, Renkler vey
 Göz yormayan, canlı spektrum gradyanı (Siyan, Kobalt Mavisi, Nane Yeşili, Zümrüt Yeşili, Limon Sarısı ve Günbatımı Altını) ile modern arayüz ve dokunsal titreşim (Haptic) desteği.
 
 • %100 CİHAZ İÇİ VE GİZLİ (SIFIR VERİ TOPLAMA)
-Pano içeriğiniz tamamen size aittir. AleClip hiçbir analitik, izleyici, reklam veya üçüncü taraf sunucu içermez. Tüm veriler yalnızca cihazınızda saklanır.
+Pano içeriğiniz tamamen size aittir. Clipale hiçbir analitik, izleyici, reklam veya üçüncü taraf sunucu içermez. Tüm veriler yalnızca cihazınızda saklanır.
 
 • YEDEKLEME VE DIŞA AKTARMA
 Pano geçmişinizi tek tıkla JSON formatında yedekleyin veya cihazlar arasında taşıyın.
 
-Günlük mobil üretkenliğinizi AleClip ile bir üst seviyeye taşıyın!
+Günlük mobil üretkenliğinizi Clipale ile bir üst seviyeye taşıyın!
 ```
 
 ---
